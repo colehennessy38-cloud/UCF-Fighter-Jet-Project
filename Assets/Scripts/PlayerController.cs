@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     public int lives;
+    private int score = 0;
     public GameManager gameManager;
     public GameObject explosionPrefab;
 
@@ -21,8 +22,11 @@ public class PlayerController : MonoBehaviour
     {
         playerSpeed = 6f;
         lives = 3;
+        score = 0;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameManager.ChangeLivesText(lives);
+        gameManager.ChangeScoreText(score);
+        
 
     }
 
@@ -42,6 +46,17 @@ public class PlayerController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+   public void GainScore()
+    {
+        score += 5;
+        gameManager.AddScore(score);
+    }
+    public void LoseScore()
+    {
+        score -= 5;
+        gameManager.RemoveScore(score);
+    }
+
     void Movement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
