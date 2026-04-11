@@ -153,6 +153,7 @@ MonoBehaviour:
   verticalScreenSize: 0
   cloudPrefab: {fileID: 3822899598994593655, guid: 536976f2f398e0344bed12e218846f66, type: 3}
   livesText: {fileID: 1553857358}
+  score: 0
 --- !u!4 &298540518
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,28 +1040,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3822899598994593655, guid: 5c3445a7e765ff94e873f3031c253c69, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3360076186952146604}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c3445a7e765ff94e873f3031c253c69, type: 3}
---- !u!1 &3360076186952146603 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3822899598994593655, guid: 5c3445a7e765ff94e873f3031c253c69, type: 3}
-  m_PrefabInstance: {fileID: 3360076186952146602}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3360076186952146604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3360076186952146603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3cd3e2453749e042a410152bbc3a162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1001 &5492129801051238891
 PrefabInstance:
   m_ObjectHideFlags: 0

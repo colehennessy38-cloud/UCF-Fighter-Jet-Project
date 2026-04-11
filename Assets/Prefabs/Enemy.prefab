@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cd3e2453749e042a410152bbc3a162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Glider
+  goingUp: 0
+  speed: 4.01
 --- !u!114 &88544996473546717
 MonoBehaviour:
   m_ObjectHideFlags: 0
