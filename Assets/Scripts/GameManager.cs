@@ -6,61 +6,62 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public GameObject enemyOnePrefab;
-    public GameObject coleEnemyPrefab;
+    public GameObject enemyTwoPrefab;
     public float horizontalScreenSize;
     public float verticalScreenSize;
     public GameObject cloudPrefab;
+
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
-    private int score = 0;
+
+    public int score;
+
     void Start()
     {
         horizontalScreenSize = 10f;
         verticalScreenSize = 6.5f;
+
         InvokeRepeating("CreateEnemyOne", 1, 2);
-        InvokeRepeating("CreateColeEnemy", 5, 3);
+        InvokeRepeating("CreateEnemyTwo", 5f, 3.5f);
+
         CreateSky();
+
+        scoreText.text = "Score: 0";
     }
+
     void CreateSky()
     {
         for (int i = 0; i < 30; i++)
         {
-            Instantiate(cloudPrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize), Random.Range(-verticalScreenSize, verticalScreenSize), 0), Quaternion.identity);
+            Instantiate(cloudPrefab,
+                new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize),
+                Random.Range(-verticalScreenSize, verticalScreenSize), 0),
+                Quaternion.identity);
         }
-
-
-
     }
+
     void CreateEnemyOne()
     {
-        Instantiate(enemyOnePrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * .9f, verticalScreenSize, 0), Quaternion.identity);
+        Instantiate(enemyOnePrefab,
+            new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * .9f, verticalScreenSize, 0),
+            Quaternion.identity);
     }
 
-    void CreateColeEnemy()
+    void CreateEnemyTwo()
     {
-        Instantiate(coleEnemyPrefab, new Vector3(-horizontalScreenSize, Random.Range(0, verticalScreenSize), 0), Quaternion.identity);
+        Instantiate(enemyTwoPrefab,
+            new Vector3(Random.Range(-9f, 9f), 6.5f, 0f),
+            Quaternion.identity);
     }
 
-    void Update()
-    {
-
-    }
     public void ChangeLivesText(int currentLives)
     {
-        livesText.text = "lives " + currentLives;
-    }
-    public void ChangeScoreText(int score)
-    {
-        scoreText.text = "score " + score;
+        livesText.text = "Lives: " + currentLives;
     }
 
     public void AddScore(int earnedScore)
     {
-        score = score + earnedScore;
+        score += earnedScore;
+        scoreText.text = "Score: " + score;
     }
-    public void RemoveScore(int earnedScore)
-    {
-        score = score - earnedScore;
-    }
-
 }
