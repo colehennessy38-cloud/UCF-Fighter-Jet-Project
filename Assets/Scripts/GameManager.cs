@@ -64,4 +64,9 @@ public class GameManager : MonoBehaviour
         score += earnedScore;
         scoreText.text = "Score: " + score;
     }
+    public void RemoveScore(int earnedScore)
+    {
+        score -= earnedScore;
+        scoreText.text = "Score " + score;
+    }
 }
