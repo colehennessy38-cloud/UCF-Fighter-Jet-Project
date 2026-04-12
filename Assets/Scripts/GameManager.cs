@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject enemyOnePrefab;
     public GameObject enemyTwoPrefab;
+    public GameObject coleEnemyPrefab;
     public float horizontalScreenSize;
     public float verticalScreenSize;
     public GameObject cloudPrefab;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
 
         InvokeRepeating("CreateEnemyOne", 1, 2);
         InvokeRepeating("CreateEnemyTwo", 5f, 3.5f);
+        InvokeRepeating("CreateColeEnemy", 5, 3);
 
         CreateSky();
 
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
         Instantiate(enemyTwoPrefab,
             new Vector3(Random.Range(-9f, 9f), 6.5f, 0f),
             Quaternion.identity);
+    }
+
+    void CreateColeEnemy()
+    {
+        Instantiate(coleEnemyPrefab, new Vector3(-horizontalScreenSize, Random.Range(0, verticalScreenSize), 0), Quaternion.identity);
     }
 
     public void ChangeLivesText(int currentLives)

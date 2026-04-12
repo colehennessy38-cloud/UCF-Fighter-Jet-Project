@@ -149,12 +149,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   enemyOnePrefab: {fileID: 3822899598994593655, guid: 5c3445a7e765ff94e873f3031c253c69, type: 3}
+  enemyTwoPrefab: {fileID: 1333337584409967885, guid: b89893d3be77fc248a7214b2b041434f, type: 3}
   coleEnemyPrefab: {fileID: 7580813677418482456, guid: 0da4facc5ec7d664dbd1ccd1ec978eda, type: 3}
   horizontalScreenSize: 0
   verticalScreenSize: 0
   cloudPrefab: {fileID: 3822899598994593655, guid: 536976f2f398e0344bed12e218846f66, type: 3}
   livesText: {fileID: 1553857358}
   scoreText: {fileID: 1291812762}
+  score: 0
 --- !u!4 &298540518
 Transform:
   m_ObjectHideFlags: 0
