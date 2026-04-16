@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class GameManager : MonoBehaviour
     public float horizontalScreenSize;
     public float verticalScreenSize;
     public GameObject cloudPrefab;
+    private bool gameOver;
+    public GameObject gameOverMenu;
+    public TextMeshProUGUI powerupText;
+    public GameObject powerupPrefab;
+    public GameObject audioPlayer;
+    public AudioClip powerUpSound;
+    public AudioClip powerDownSound;
 
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
@@ -21,10 +29,13 @@ public class GameManager : MonoBehaviour
     {
         horizontalScreenSize = 10f;
         verticalScreenSize = 6.5f;
+        gameOver = false;
+        powerupText.text = "No power ups yet";
 
         InvokeRepeating("CreateEnemyOne", 1, 2);
         InvokeRepeating("CreateEnemyTwo", 5f, 3.5f);
         InvokeRepeating("CreateColeEnemy", 5, 3);
+        StartCoroutine(SpawnPowerup());
 
         CreateSky();
 
@@ -40,6 +51,11 @@ public class GameManager : MonoBehaviour
                 Random.Range(-verticalScreenSize, verticalScreenSize), 0),
                 Quaternion.identity);
         }
+    }
+
+    void CreatePowerup()
+    {
+        Instantiate(powerupPrefab, new Vector3(Random.Range(-horizontalScreenSize * .8f, horizontalScreenSize * .8f), Random.Range(-verticalScreenSize * .8f, verticalScreenSize * .8f), 0), Quaternion.identity);
     }
 
     void CreateEnemyOne()
@@ -61,10 +77,55 @@ public class GameManager : MonoBehaviour
         Instantiate(coleEnemyPrefab, new Vector3(-horizontalScreenSize, Random.Range(0, verticalScreenSize), 0), Quaternion.identity);
     }
 
+    IEnumerator SpawnPowerup()
+    {
+        float spawnTime = Random.Range(3, 5);
+        yield return new WaitForSeconds(spawnTime);
+        CreatePowerup();
+        StartCoroutine(SpawnPowerup());
+    }
+
+    public void ManagePowerupText(int powerupType)
+    {
+        switch (powerupType)
+        {
+            case 1:
+                powerupText.text = "Speed!";
+                break;
+            case 2:
+                powerupText.text = "Double Weapon!";
+                break;
+            case 3:
+                powerupText.text = "Triple Weapon";
+                break;
+            case 4:
+                powerupText.text = "Shield!";
+                break;
+            default:
+                powerupText.text = "No Powerups Yet!";
+                break;
+
+        }
+    }
+
+    public void PlaySound(int whichSound)
+    {
+        switch (whichSound)
+        {
+            case 1:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerUpSound);
+                break;
+            case 2:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerDownSound);
+                break;
+        }
+    }
+
     public void ChangeLivesText(int currentLives)
     {
         livesText.text = "Lives: " + currentLives;
     }
+
 
     public void AddScore(int earnedScore)
     {
@@ -75,5 +136,18 @@ public class GameManager : MonoBehaviour
     {
         score -= earnedScore;
         scoreText.text = "Score " + score;
+    }
+    public void GameOver()
+    {
+        gameOverMenu.SetActive(true);
+        gameOver = true;
+    }
+
+    void Update()
+    {
+        if(gameOver && Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
