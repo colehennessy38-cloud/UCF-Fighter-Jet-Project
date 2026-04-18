@@ -11,23 +11,27 @@ public class ColeEnemy : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    
     void Update()
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
 
-        if (transform.position.y >= gameManager.verticalScreenSize * 1.25f || transform.position.y <= -gameManager.verticalScreenSize * 1.25f)
+        if (transform.position.y >= gameManager.verticalScreenSize * 1.25f ||
+            transform.position.y <= -gameManager.verticalScreenSize * 1.25f)
         {
             Destroy(this.gameObject);
         }
-
     }
+
     private void OnTriggerEnter2D(Collider2D whatDidIHit)
     {
         if (whatDidIHit.tag == "Weapons")
         {
             Destroy(whatDidIHit.gameObject);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+            // FIX: explosion now disappears after 1 second
+            GameObject boom = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(boom, 1f);
+
             gameManager.RemoveScore(5);
             Destroy(this.gameObject);
         }
@@ -35,9 +39,12 @@ public class ColeEnemy : MonoBehaviour
         if (whatDidIHit.tag == "Player")
         {
             whatDidIHit.GetComponent<PlayerController>().LoseALife();
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+            // FIX: explosion now disappears after 1 second
+            GameObject boom = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(boom, 1f);
+
             Destroy(this.gameObject);
         }
-
     }
 }
