@@ -297,6 +297,7 @@ MonoBehaviour:
   gameOverMenu: {fileID: 1292446533}
   powerupText: {fileID: 953932777}
   powerupPrefab: {fileID: 3822899598994593655, guid: 2b9f67f1c5275c74d97e7f604226fd47, type: 3}
+  healthPowerupPrefab: {fileID: 2917692962756321790, guid: 7188783bc7a214f40b106f82da12bd79, type: 3}
   audioPlayer: {fileID: 985145251}
   powerUpSound: {fileID: 8300000, guid: 752ca85f206f14146942c3fcafbdd492, type: 3}
   powerDownSound: {fileID: 8300000, guid: 86237706879f3c44db594d2c5cb1f7b3, type: 3}
@@ -1559,6 +1560,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6895617323790378196, guid: e72506c685d0952468acda0fd05dcea4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895617323790378196, guid: e72506c685d0952468acda0fd05dcea4, type: 3}
+      propertyPath: m_Size.y
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895617323790378196, guid: e72506c685d0952468acda0fd05dcea4, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7201288934073320474, guid: e72506c685d0952468acda0fd05dcea4, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1639,6 +1652,7 @@ MonoBehaviour:
   shieldPrefab: {fileID: 1329966822}
   weaponType: 0
   shieldActive: 0
+  thrusterActive: 0
 --- !u!1001 &3360076186952146602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1780,6 +1794,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1290000404323573155, guid: 0da4facc5ec7d664dbd1ccd1ec978eda, type: 3}
+      propertyPath: m_Size.x
+      value: 1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -1290000404323573155, guid: 0da4facc5ec7d664dbd1ccd1ec978eda, type: 3}
+      propertyPath: m_Size.y
+      value: 1.64
+      objectReference: {fileID: 0}
+    - target: {fileID: -1290000404323573155, guid: 0da4facc5ec7d664dbd1ccd1ec978eda, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1878702516136338408, guid: 0da4facc5ec7d664dbd1ccd1ec978eda, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.67
@@ -1925,11 +1951,11 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6, y: 7.58}
+    newSize: {x: 1.31, y: 1.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}

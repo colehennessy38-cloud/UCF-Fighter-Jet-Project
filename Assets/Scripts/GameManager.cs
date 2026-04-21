@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(powerupPrefab,
             new Vector3(Random.Range(-horizontalScreenSize * .8f, horizontalScreenSize * .8f),
-            Random.Range(-verticalScreenSize * .8f, verticalScreenSize * .8f), 0),
+            Random.Range(-verticalScreenSize * .8f, verticalScreenSize / 2f), 0),
             Quaternion.identity);
     }
 

@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
             // Shield absorbs the hit
             shieldActive = false;
             shieldPrefab.SetActive(false);
+            gameManager.PlaySound(2);
         }
 
         gameManager.ChangeLivesText(lives);
@@ -69,10 +70,13 @@ public class PlayerController : MonoBehaviour
     IEnumerator ShieldPowerDown()
     {
         yield return new WaitForSeconds(5);
-        shieldPrefab.SetActive(false);
-        shieldActive = false;
-        gameManager.PlaySound(2);
-        gameManager.ManagePowerupText(5);
+        if (shieldActive)
+        {
+            shieldPrefab.SetActive(false);
+            shieldActive = false;
+            gameManager.PlaySound(2);
+            gameManager.ManagePowerupText(5);
+        }
     }
 
     IEnumerator SpeedPowerDown()
