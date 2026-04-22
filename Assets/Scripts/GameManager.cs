@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(SpawnPowerup());
         StartCoroutine(SpawnHealthPowerup());
+        StartCoroutine(SpawnCoin());
 
         CreateSky();
 
@@ -66,6 +67,11 @@ public class GameManager : MonoBehaviour
             new Vector3(Random.Range(-horizontalScreenSize * .8f, horizontalScreenSize * .8f),
             Random.Range(-verticalScreenSize * .8f, verticalScreenSize / 2f), 0),
             Quaternion.identity);
+    }
+
+    void CreateCoin()
+    {
+        Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(-verticalScreenSize, verticalScreenSize), 0), Quaternion.identity);
     }
 
     void CreateEnemyOne()
