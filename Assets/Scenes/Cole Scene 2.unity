@@ -297,18 +297,12 @@ MonoBehaviour:
   gameOverMenu: {fileID: 1292446533}
   powerupText: {fileID: 953932777}
   powerupPrefab: {fileID: 3822899598994593655, guid: 2b9f67f1c5275c74d97e7f604226fd47, type: 3}
-<<<<<<< Updated upstream
-=======
-  coinPrefab: {fileID: 3822899598994593655, guid: f274b49d133d67340bc1b0a57f2fef1f, type: 3}
->>>>>>> Stashed changes
   healthPowerupPrefab: {fileID: 2917692962756321790, guid: 7188783bc7a214f40b106f82da12bd79, type: 3}
   audioPlayer: {fileID: 985145251}
   powerUpSound: {fileID: 8300000, guid: 752ca85f206f14146942c3fcafbdd492, type: 3}
   powerDownSound: {fileID: 8300000, guid: 86237706879f3c44db594d2c5cb1f7b3, type: 3}
-  coinSound: {fileID: 8300000, guid: 90b3ebbc618813a44b27143d1d188ff7, type: 3}
   livesText: {fileID: 1553857358}
   scoreText: {fileID: 1291812762}
-  powerUpText: {fileID: 0}
   score: 0
 --- !u!4 &298540518
 Transform:
@@ -1568,19 +1562,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6895617323790378196, guid: e72506c685d0952468acda0fd05dcea4, type: 3}
       propertyPath: m_Size.x
-<<<<<<< Updated upstream
       value: 0.91
       objectReference: {fileID: 0}
     - target: {fileID: 6895617323790378196, guid: e72506c685d0952468acda0fd05dcea4, type: 3}
       propertyPath: m_Size.y
       value: 1.06
-=======
-      value: 1.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6895617323790378196, guid: e72506c685d0952468acda0fd05dcea4, type: 3}
-      propertyPath: m_Size.y
-      value: 1
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 6895617323790378196, guid: e72506c685d0952468acda0fd05dcea4, type: 3}
       propertyPath: m_DrawMode
@@ -1678,10 +1664,6 @@ PrefabInstance:
     - target: {fileID: 3822899598994593655, guid: 5c3445a7e765ff94e873f3031c253c69, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329564338563684375, guid: 5c3445a7e765ff94e873f3031c253c69, type: 3}
-      propertyPath: m_Radius
-      value: 4.03
       objectReference: {fileID: 0}
     - target: {fileID: 7462867830371340758, guid: 5c3445a7e765ff94e873f3031c253c69, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1814,19 +1796,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1290000404323573155, guid: 0da4facc5ec7d664dbd1ccd1ec978eda, type: 3}
       propertyPath: m_Size.x
-<<<<<<< Updated upstream
       value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: -1290000404323573155, guid: 0da4facc5ec7d664dbd1ccd1ec978eda, type: 3}
       propertyPath: m_Size.y
       value: 1.64
-=======
-      value: 1.44
-      objectReference: {fileID: 0}
-    - target: {fileID: -1290000404323573155, guid: 0da4facc5ec7d664dbd1ccd1ec978eda, type: 3}
-      propertyPath: m_Size.y
-      value: 1.28
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: -1290000404323573155, guid: 0da4facc5ec7d664dbd1ccd1ec978eda, type: 3}
       propertyPath: m_DrawMode
@@ -1979,11 +1953,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6, y: 7.58}
-<<<<<<< Updated upstream
     newSize: {x: 1.31, y: 1.64}
-=======
-    newSize: {x: 1.44, y: 1.28}
->>>>>>> Stashed changes
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
