@@ -16,15 +16,18 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverMenu;
     public TextMeshProUGUI powerupText;
     public GameObject powerupPrefab;
+    public GameObject coinPrefab;
 
     public GameObject healthPowerupPrefab;
 
     public GameObject audioPlayer;
     public AudioClip powerUpSound;
     public AudioClip powerDownSound;
+    public AudioClip coinSound;
 
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI powerUpText;
 
     public int score;
 
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(SpawnPowerup());
         StartCoroutine(SpawnHealthPowerup());
+        StartCoroutine(SpawnCoin());
 
         CreateSky();
 
@@ -64,6 +68,11 @@ public class GameManager : MonoBehaviour
             new Vector3(Random.Range(-horizontalScreenSize * .8f, horizontalScreenSize * .8f),
             Random.Range(-verticalScreenSize * .8f, verticalScreenSize / 2f), 0),
             Quaternion.identity);
+    }
+
+    void CreateCoin()
+    {
+        Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(-verticalScreenSize, verticalScreenSize), 0), Quaternion.identity);
     }
 
     void CreateEnemyOne()
@@ -91,6 +100,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(spawnTime);
         CreatePowerup();
         StartCoroutine(SpawnPowerup());
+    }
+
+    IEnumerator SpawnCoin()
+    {
+        float spawnTime = Random.Range(3, 5);
+        yield return new WaitForSeconds(spawnTime);
+        CreateCoin();
+        StartCoroutine(SpawnCoin());
     }
 
     IEnumerator SpawnHealthPowerup()
@@ -145,6 +162,9 @@ public class GameManager : MonoBehaviour
                 break;
             case 2:
                 audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerDownSound);
+                break;
+            case 3:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(coinSound);
                 break;
         }
     }
