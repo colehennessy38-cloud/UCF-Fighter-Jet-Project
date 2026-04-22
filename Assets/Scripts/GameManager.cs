@@ -16,12 +16,14 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverMenu;
     public TextMeshProUGUI powerupText;
     public GameObject powerupPrefab;
+    public GameObject coinPrefab;
 
     public GameObject healthPowerupPrefab;
 
     public GameObject audioPlayer;
     public AudioClip powerUpSound;
     public AudioClip powerDownSound;
+    public AudioClip coinSound;
 
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
