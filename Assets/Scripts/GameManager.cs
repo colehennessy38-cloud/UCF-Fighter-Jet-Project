@@ -101,6 +101,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnPowerup());
     }
 
+    IEnumerator SpawnCoin()
+    {
+        float spawnTime = Random.Range(3, 5);
+        yield return new WaitForSeconds(spawnTime);
+        CreateCoin();
+        StartCoroutine(SpawnCoin());
+    }
+
     IEnumerator SpawnHealthPowerup()
     {
         while (true)
@@ -153,6 +161,9 @@ public class GameManager : MonoBehaviour
                 break;
             case 2:
                 audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerDownSound);
+                break;
+            case 3:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(coinSound);
                 break;
         }
     }
