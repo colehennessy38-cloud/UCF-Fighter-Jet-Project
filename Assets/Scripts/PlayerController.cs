@@ -139,6 +139,12 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+        if (whatDidIHit.tag == "Coin")
+        {
+            Destroy(whatDidIHit.gameObject);
+            gameManager.PlaySound(3);
+            gameManager.AddScore(1);
+        }
     }
 
     void Movement()
