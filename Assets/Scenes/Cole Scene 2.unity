@@ -297,10 +297,12 @@ MonoBehaviour:
   gameOverMenu: {fileID: 1292446533}
   powerupText: {fileID: 953932777}
   powerupPrefab: {fileID: 3822899598994593655, guid: 2b9f67f1c5275c74d97e7f604226fd47, type: 3}
+  coinPrefab: {fileID: 3822899598994593655, guid: 2776ae1ea0373454f9df27be75acbd33, type: 3}
   healthPowerupPrefab: {fileID: 2917692962756321790, guid: 7188783bc7a214f40b106f82da12bd79, type: 3}
   audioPlayer: {fileID: 985145251}
   powerUpSound: {fileID: 8300000, guid: 752ca85f206f14146942c3fcafbdd492, type: 3}
   powerDownSound: {fileID: 8300000, guid: 86237706879f3c44db594d2c5cb1f7b3, type: 3}
+  coinSound: {fileID: 8300000, guid: 90b3ebbc618813a44b27143d1d188ff7, type: 3}
   livesText: {fileID: 1553857358}
   scoreText: {fileID: 1291812762}
   score: 0
